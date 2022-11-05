@@ -1,4 +1,4 @@
-package ee.secretagency.example.homebudgetjava16.controller;
+package ee.secretagency.homebudgetjava16.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

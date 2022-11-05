@@ -1,7 +1,7 @@
-package ee.secretagency.example.homebudgetjava16.controller;
+package ee.secretagency.homebudgetjava16.controller;
 
-import ee.secretagency.example.homebudgetjava16.entity.Address;
-import ee.secretagency.example.homebudgetjava16.entity.Person;
+import ee.secretagency.homebudgetjava16.entity.Address;
+import ee.secretagency.homebudgetjava16.entity.Person;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;

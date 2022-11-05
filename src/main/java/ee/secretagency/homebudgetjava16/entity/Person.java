@@ -1,4 +1,4 @@
-package ee.secretagency.example.homebudgetjava16.entity;
+package ee.secretagency.homebudgetjava16.entity;
 
 public record Person(
         String name,
