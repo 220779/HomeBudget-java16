@@ -1,4 +1,4 @@
-package com.example.homebudgetjava16.entity;
+package ee.secretagency.example.homebudgetjava16.entity;
 
 public record Address(
         String country,
