@@ -60,14 +60,12 @@ public class IncomeService {
     }
 
     public void deleteIncomeWithId(Long id) {
-
-        log.info("deleting incom by id;[{}]", id);
-
+        log.info("deleting income with id: [{}]", id);
         try {
             repository.deleteById(id);
-
         } catch (EmptyResultDataAccessException exc) {
-            throw new IncomeNotFound("No existing Items", exc);
+            log.warn("Trying to delete non existent income", exc);
+            throw new IncomeNotFound("No existing income", exc);
         }
     }
 }
