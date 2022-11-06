@@ -4,6 +4,7 @@ import ee.secretagency.homebudgetjava16.entity.Income;
 import ee.secretagency.homebudgetjava16.exception.IncomeNotFound;
 import ee.secretagency.homebudgetjava16.repository.IncomesRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
@@ -53,11 +54,22 @@ public class IncomeService {
     public Income readIncomeByIdBetterWay(Long id) {
         log.info("reading income with id: [{}] - better way", id);
         var maybeIncome = repository.findAll();
-       // return maybeIncome.orElse(null);
-       //return maybeIncome.orElseThrow(()-> new IncomeNotFound("no Entity"));
-    return null;
+        // return maybeIncome.orElse(null);
+        //return maybeIncome.orElseThrow(()-> new IncomeNotFound("no Entity"));
+        return null;
     }
 
+    public void deleteIncomeWithId(Long id) {
+
+        log.info("deleting incom by id;[{}]", id);
+
+        try {
+            repository.deleteById(id);
+
+        } catch (EmptyResultDataAccessException exc) {
+            throw new IncomeNotFound("No existing Items", exc);
+        }
+    }
 }
 
 
