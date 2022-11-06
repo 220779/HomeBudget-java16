@@ -15,7 +15,7 @@ public class IncomeAdvisor {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(IncomeNotFound.class)
     public String handleIncomeNotFoundException () {
-     //   log.info("handling not found incomes");
+       log.info("handling not found incomes");
         return "cannot find this income";
     }
 

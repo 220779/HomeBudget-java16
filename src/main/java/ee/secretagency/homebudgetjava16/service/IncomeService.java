@@ -1,6 +1,7 @@
 package ee.secretagency.homebudgetjava16.service;
 
 import ee.secretagency.homebudgetjava16.entity.Income;
+import ee.secretagency.homebudgetjava16.exception.IncomeNotFound;
 import ee.secretagency.homebudgetjava16.repository.IncomesRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -53,7 +54,8 @@ public class IncomeService {
         log.info("reading income with id: [{}] - better way", id);
         var maybeIncome = repository.findAll();
        // return maybeIncome.orElse(null);
-        return null;
+       //return maybeIncome.orElseThrow(()-> new IncomeNotFound("no Entity"));
+    return null;
     }
 
 }

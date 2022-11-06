@@ -4,7 +4,6 @@ package ee.secretagency.homebudgetjava16.controller.rest;
 import ee.secretagency.homebudgetjava16.entity.Income;
 import ee.secretagency.homebudgetjava16.service.IncomeService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,37 +31,33 @@ public class IncomeController {
 
 
     @GetMapping("/incomes/{id}")
-    public ResponseEntity<Object> getIncomeById(@PathVariable("id") Long idOfIncome) {
+    public Income getIncomeById(@PathVariable("id") Long idOfIncome) {
         log.info("trying to get income with id: [{}]", idOfIncome);
-        Income fromRepo = null;
-        boolean exists = fromRepo != null;
-        if(fromRepo != null) {
-            return ResponseEntity.ok(fromRepo);
-        } else {
-            return ResponseEntity.notFound().build();
+
+            return service.readIncomeByIdBetterWay(idOfIncome);
         }
 
     }
 
-   @GetMapping("/incomes/{id}")
-   public Income readIncomeById(Long id) {
-       log.info("reading income with id: [{}]", id);
-       Income incomeFromRepository = null;
-  //     try {
-//            incomeFromRepository = repository.getOne(id);
-       if (incomeFromRepository == null) {
-           log.info("It's null");
-       } else {
-           log.info("It's not null");
-       }
-//            log.info("" + incomeFromRepository);
-//            log.info("read income: [{}]", incomeFromRepository);
-//
-//        } catch (EntityNotFoundException e) {
-//            log.warn("some unexpected exception has occurred", e);
-//            return null;
-//        }
-        return incomeFromRepository;
-   }
-}
+//   @GetMapping("/incomes/{id}")
+//   public Income readIncomeById(Long id) {
+//       log.info("reading income with id: [{}]", id);
+//       Income incomeFromRepository = null;
+//  //     try {
+////            incomeFromRepository = repository.getOne(id);
+//       if (incomeFromRepository == null) {
+//           log.info("It's null");
+//       } else {
+//           log.info("It's not null");
+//       }
+////            log.info("" + incomeFromRepository);
+////            log.info("read income: [{}]", incomeFromRepository);
+////
+////        } catch (EntityNotFoundException e) {
+////            log.warn("some unexpected exception has occurred", e);
+////            return null;
+////        }
+//        return incomeFromRepository;
+
+
 

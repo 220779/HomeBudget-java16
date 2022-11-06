@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
@@ -20,8 +17,7 @@ public class Income {
 
     @Id
     Long id;
-    @ManyToOne
-    @JoinColumn(name = "category_ID")
+    @Enumerated(EnumType.STRING)
     IncomeCategory category;
     String currency;
     BigDecimal amount;
