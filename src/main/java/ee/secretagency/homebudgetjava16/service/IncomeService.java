@@ -8,6 +8,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -63,10 +64,22 @@ public class IncomeService {
         log.info("deleting income with id: [{}]", id);
         try {
             repository.deleteById(id);
-        } catch (EmptyResultDataAccessException exc) {
-            log.warn("Trying to delete non existent income", exc);
-            throw new IncomeNotFound("No existing income", exc);
-        }
+            } catch (EmptyResultDataAccessException exc) {
+            log.warn("Trying to delete non existing income", exc);
+            throw new IncomeNotFound("No existing income");
+       }
+    }
+    //second deleting solution
+    @Transactional
+    public void deleteIncomeWithIdBetter(Long id) {
+        log.info ("delete income with id: [{}]", id);
+
+                if(repository.existsById(id)){
+                    repository.deleteById(id);
+                } else {
+                    throw new IncomeNotFound("No existing income with id: [%d]".formatted(id));
+
+                }
     }
 }
 
