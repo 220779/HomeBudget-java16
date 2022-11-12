@@ -81,6 +81,11 @@ public class IncomeService {
 
                 }
     }
+
+    public Income createNewIncome(Income income) {
+
+        return null;
+    }
 }
 
 

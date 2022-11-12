@@ -21,6 +21,9 @@ REST - hierarchical resources
   -Create:
     - url: /incomes
     - POST http method
+    -success: 201 (created) HTTP return code 
+     - created entity (with id) with location header
+      -or created entity (with id) with location header
   -Delete:
     -url: /incomes/{id}
     -DELETE http method
