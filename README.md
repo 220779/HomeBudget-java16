@@ -26,7 +26,7 @@ REST - hierarchical resources
     -DELETE http method
   -Update:
     -url: /incomes/{id}
-    -PUT htt pmethod - full update - replace
+    -PUT htt method - full update - replace
     _PATCH http method - partial update
     
 
