@@ -5,6 +5,7 @@ import ee.secretagency.homebudgetjava16.dto.ErrorInfo;
 import ee.secretagency.homebudgetjava16.exception.IncomeNotFound;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -27,6 +28,16 @@ public class IncomeAdvisor {
                 .messages(exc.getMessage())
                 .timeStamp(ZonedDateTime.now())
                 .path(ServletUriComponentsBuilder.fromCurrentRequest().toUriString()) //TODO:
+                .build();
+    }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ErrorInfo handleVaslidationException(MethodArgumentNotValidException exc){
+        return ErrorInfo.builder()
+                .status(400)
+                .error("validation failed")
+                .timeStamp((ZonedDateTime.now()))
+                .path(ServletUriComponentsBuilder.fromCurrentRequestUri().toUriString())
                 .build();
     }
 
