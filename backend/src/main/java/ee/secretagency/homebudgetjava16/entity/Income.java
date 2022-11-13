@@ -18,12 +18,10 @@ import java.time.ZonedDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Income {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @Enumerated(EnumType.STRING)
-
     @NotNull
     IncomeCategory category;
 
@@ -34,7 +32,20 @@ public class Income {
     @NotNull
     @Positive
     BigDecimal amount;
-    String person;
-    ZonedDateTime timeStamp;
-}
 
+    String person;
+    ZonedDateTime timestamp;
+    ZonedDateTime creationTimestamp;
+    ZonedDateTime updateTimestamp;
+
+    // TODO: handle creation timestamp during updating record at db
+    @PrePersist
+    private void initCreationTimestamp() {
+        creationTimestamp = ZonedDateTime.now();
+    }
+
+    @PreUpdate
+    private void setCurrentUpdateTimestamp() {
+        updateTimestamp = ZonedDateTime.now();
+    }
+}
