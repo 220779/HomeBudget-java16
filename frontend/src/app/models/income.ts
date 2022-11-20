@@ -11,7 +11,7 @@ export interface Income {
 
   timestamp: string,
 
-  creationTimestamp: string,
+  creationTimestamp: string ,
 
   updateTimestamp: string | null
 
