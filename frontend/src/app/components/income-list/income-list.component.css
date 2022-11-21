@@ -1,0 +1,8 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('src/assets/images/women-2808629_640.jpg');
+  background-size: cover;
+}
