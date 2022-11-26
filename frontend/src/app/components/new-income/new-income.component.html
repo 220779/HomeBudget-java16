@@ -1,14 +1,30 @@
-<h2>Create new Income</h2>
+<h2>Create new income</h2>
 
 <form (ngSubmit)="onSubmitData()">
   <mat-form-field appearance="fill">
     <mat-label>Income category</mat-label>
-    <mat-select >
+    <mat-select>
       <mat-option *ngFor="let category of categories" [value]="category.value">
         {{category.displayedValue}}
       </mat-option>
     </mat-select>
   </mat-form-field>
+  <br>
+  <label id="radio-group-label">Pick your currency</label>
+  <mat-radio-group
+    aria-labelledby="radio-group-label"
+    class="radio-group">
+    <mat-radio-button class="radio-button" *ngFor="let currency of currencies" [value]="currency">
+      {{currency}}
+    </mat-radio-button>
+    <mat-radio-button class="radio-button" [value]="">
+      Provide Your currency
+    </mat-radio-button>
+  </mat-radio-group>
 
-  <button type="submit" mat-raised-button color="primary">Create new Income</button>
+  <mat-form-field class="example-full-width">
+    <mat-label>Currency</mat-label>
+    <input matInput placeholder="Provide currency" value="EUR">
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">Create new income</button>
 </form>

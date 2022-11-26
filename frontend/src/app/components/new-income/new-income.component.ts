@@ -15,6 +15,16 @@ export class NewIncomeComponent implements OnInit {
     {displayedValue: 'Dividend', value: 'DIVIDEND'},
     {displayedValue: 'Other', value: 'OTHER'}
   ]
+
+  currencies = [
+    'EUR',
+    'PLN',
+    'CAN',
+    'USD',
+    'UAH',
+    'GBP'
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
