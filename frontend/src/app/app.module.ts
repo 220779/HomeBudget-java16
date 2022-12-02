@@ -20,7 +20,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
-import {ExpenseListComponent} from "./component/expense-list/expense-list.component";
+import {ExpenseListComponent} from "./components/expense-list/expense-list.component";
 
 @NgModule({
   declarations: [
