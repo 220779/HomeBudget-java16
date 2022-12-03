@@ -21,14 +21,15 @@
       Provide Your currency
     </mat-radio-button>
   </mat-radio-group>
-
+//TODO: make this field dynamic
   <mat-form-field class="example-full-width">
     <mat-label>Currency</mat-label>
     <input matInput placeholder="Provide currency" value="EUR">
   </mat-form-field>
+
     <mat-form-field class="example-full-width">
       <mat-label>Amount</mat-label>
-      <input matInput placeholder="100" value="100">
+      <input matInput matNativeControl ="number" placeholder="100" value="100">
     </mat-form-field>
 
 
