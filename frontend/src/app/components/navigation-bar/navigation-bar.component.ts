@@ -11,8 +11,6 @@ export class NavigationBarComponent implements OnInit {
   home = homeUrl
   expenses = expenseListUrl
   incomes = incomeListUrl
-
-
   newIncome = createNewIncomeUrl
 
   constructor() { }
