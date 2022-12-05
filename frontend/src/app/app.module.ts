@@ -21,6 +21,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import {ExpenseListComponent} from "./components/expense-list/expense-list.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {ExpenseListComponent} from "./components/expense-list/expense-list.compo
     MatRadioModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

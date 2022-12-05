@@ -2,7 +2,7 @@ package ee.secretagency.homebudgetjava16.controller.rest;
 
 
 import ee.secretagency.homebudgetjava16.entity.Income;
-import ee.secretagency.homebudgetjava16.service.IncomeService;
+import ee.secretagency.homebudgetjava16.service.IncomesService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +18,9 @@ import java.util.List;
 @CrossOrigin("*")
 public class IncomeController {
 
-    private final IncomeService service;
+    private final IncomesService service;
 
-    public IncomeController(IncomeService service) {
+    public IncomeController(IncomesService service) {
         this.service = service;
     }
 
@@ -49,7 +49,7 @@ public class IncomeController {
 
     // TODO: fix id from the income
     @PostMapping("/incomes")
-    public ResponseEntity<Income> createNewIncome(@RequestBody Income income) {
+    public ResponseEntity<Income> createNewIncome(@Valid @RequestBody Income income) {
         log.info("creating new income: [{}]", income);
 
         Income newIncome = service.createNewIncome(income);
@@ -58,7 +58,6 @@ public class IncomeController {
                 .body(newIncome);
     }
 }
-
 
 
 

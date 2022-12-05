@@ -9,17 +9,13 @@ import {Observable} from "rxjs";
 })
 export class IncomeService {
 
-  //TODO: add module
-
   constructor(private httpClient: HttpClient) { }
 
   getAllIncomes(): Observable<Array<Income>> {
     return this.httpClient.get<Array<Income>>(allIncomesUrl)
-
-
   }
 
-  createNewIncome(income: { amount: number; person: string; creationTimestamp: null; currency: string; id: null; category: string; updateTimestamp: null; timestamp: string }) : Observable<Income>{
+  createNewIncome(income: { amount: number; person: string; creationTimestamp: null; currency: string; id: null; category: string; updateTimestamp: null; timestamp: string }): Observable<Income> {
     return this.httpClient.post<Income>(newIncomeUrl, income)
   }
 }
