@@ -1,5 +1,5 @@
 export interface Income {
-  id: string ,
+  id: string | null,
 
   category: string,
 
