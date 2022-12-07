@@ -23,10 +23,26 @@
     </mat-radio-button>
   </mat-radio-group>
 
-  <mat-form-field class="example-full-width">
-    <mat-label>Currency</mat-label>
-    <input #customCurrency matInput placeholder="Provide currency" value="EUR">
+  <mat-form-field >
+    <mat-label id = "result">Currency</mat-label>
+    <input #customCurrency matInput placeholder="Provide currency" value="EUR" checked >
   </mat-form-field>
+<!-- //TODO -fixing visibility
+    //*ngIf ="!radioButton.checked
+<script>-->
+<!--   let radioButtons = document.querySelectorAll("input[name= 'currencies']")-->
+<!--   let result = document.getElementById("result")-->
+
+<!--   let findSelected = ()=> {-->
+<!--     let selected = document.querySelector("input[name= 'currencies']:checked").value-->
+<!--     result.textContent = 'Currency:${selected}'-->
+<!--   }-->
+
+<!--   radioButtons.forEach(radioButtons => {-->
+<!--     radioButtons.addEventListener("change", findSelected)-->
+<!--   })-->
+
+<!-- </script>-->
 
     <mat-form-field class="example-full-width">
       <mat-label>Amount</mat-label>
